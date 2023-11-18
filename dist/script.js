@@ -16,6 +16,10 @@ let paragraphs = [
 
 let p = document.querySelector("p");
 let allP = document.querySelector(".allParagraphs");
+let copy = document.querySelector(".copy");
+let textCopy = document.querySelector(".textCopy");
+
+textCopy.innerHTML = "Copy";
 console.log(`Allp = ${p}`);
 generate.addEventListener("click", (e) => {
   allP.textContent = "";
@@ -37,8 +41,7 @@ function toCopy() {
   let toCopy1 = allP.innerText;
   navigator.clipboard.writeText(toCopy1);
 }
-let copy = document.querySelector(".copy");
-let textCopy = document.querySelector(".textCopy");
+
 copy.addEventListener("click", function () {
   textCopy.innerHTML = "Copied!";
   toCopy();
