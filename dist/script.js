@@ -40,7 +40,7 @@ function toCopy() {
   let toCopy1 = allP.innerText;
   navigator.clipboard.writeText(toCopy1);
 }
-
+ textCopy.innerHTML = "Copy";
 copy.addEventListener("click", function () {
   textCopy.innerHTML = "Copied!";
   toCopy();
