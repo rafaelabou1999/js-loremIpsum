@@ -19,10 +19,9 @@ let allP = document.querySelector(".allParagraphs");
 let copy = document.querySelector(".copy");
 let textCopy = document.querySelector(".textCopy");
 
-textCopy.innerHTML = "Copy";
-console.log(`Allp = ${p}`);
 generate.addEventListener("click", (e) => {
   allP.textContent = "";
+  textCopy.innerHTML = "Copy";
   for (let i = 0; i < range.value; i++) {
     const p = document.createElement("p");
     let par = paragraphs[i];
