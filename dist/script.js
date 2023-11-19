@@ -1,6 +1,6 @@
 let generate = document.querySelector(".generate");
 let input = document.querySelector("input[type=number]");
-let range = document.querySelector("input[type=range");
+let range = document.querySelector("input[type=number");
 
 let paragraphs = [
   " Lorem ipsum dolor sit amet consectetur adipisicing elit. Impeditratione vel explicabo deleniti tempore ipsa in quaerat placeatnecessitatibus et eligendi facilis aspernatur, blanditiis fuga,consectetur quam expedita ipsum beatae!",
@@ -11,6 +11,7 @@ let paragraphs = [
   "Vestibulum vitae nibh nibh. Maecenas pulvinar, nunc eu scelerisque auctor, lectus turpis suscipit nisi, a pharetra orci neque non augue. Fusce molestie dui ac tempus posuere. Duis tincidunt odio sed eros iaculis, nec cursus mi auctor. Nunc iaculis accumsan felis sed pretium. Quisque lacinia massa quam, at efficitur tellus consectetur id. Aenean eu sagittis libero. Ut non tortor bibendum lectus ultricies sodales. In finibus in urna eget cursus. Curabitur bibendum augue at sagittis consectetur. Nam tempor gravida metus. Curabitur et elit placerat, euismod orci in, ullamcorper quam. Vivamus commodo, orci vitae eleifend aliquet, enim libero scelerisque sapien, ac accumsan sapien purus eu nunc.",
   "Proin egestas justo sem, nec posuere mi commodo nec. Ut maximus porttitor arcu, et venenatis turpis rutrum ac. Donec a pretium tellus. Vestibulum suscipit lectus vel pharetra condimentum. Aenean condimentum bibendum nulla iaculis finibus. Aliquam laoreet eros vitae est sagittis aliquet. Nam tincidunt ut mauris vitae aliquam. Sed placerat tellus id tristique vulputate. Nullam venenatis mi nec velit dignissim finibus. Ut efficitur aliquet ipsum, ac laoreet elit bibendum vitae. Nullam tincidunt magna ac ante iaculis iaculis. In cursus turpis sed risus rutrum, eget rutrum nulla dictum. ",
   "Proin egestas justo sem, nec posuere mi commodo nec. Ut maximus porttitor arcu, et venenatis turpis rutrum ac. Donec a pretium tellus. Vestibulum suscipit lectus vel pharetra condimentum. Aenean condimentum bibendum nulla iaculis finibus. Aliquam laoreet eros vitae est sagittis aliquet. Nam tincidunt ut mauris vitae aliquam. Sed placerat tellus id tristique vulputate. Nullam venenatis mi nec velit dignissim finibus. Ut efficitur aliquet ipsum, ac laoreet elit bibendum vitae. Nullam tincidunt magna ac ante iaculis iaculis. In cursus turpis sed risus rutrum, eget rutrum nulla dictum. ",
+  "Proin egestas justo sem, nec posuere mi commodo nec. Ut maximus porttitor arcu, et venenatis turpis rutrum ac. Donec a pretium tellus. Vestibulum suscipit lectus vel pharetra condimentum. Aenean condimentum bibendum nulla iaculis finibus. Aliquam laoreet eros vitae est sagittis aliquet. Nam tincidunt ut mauris vitae aliquam. Sed placerat tellus id tristique vulputate. Nullam venenatis mi nec velit dignissim finibus. Ut efficitur aliquet ipsum, ac laoreet elit bibendum vitae. Nullam tincidunt magna ac ante iaculis iaculis. In cursus turpis sed risus rutrum, eget rutrum nulla dictum.",
   "Proin egestas justo sem, nec posuere mi commodo nec. Ut maximus porttitor arcu, et venenatis turpis rutrum ac. Donec a pretium tellus. Vestibulum suscipit lectus vel pharetra condimentum. Aenean condimentum bibendum nulla iaculis finibus. Aliquam laoreet eros vitae est sagittis aliquet. Nam tincidunt ut mauris vitae aliquam. Sed placerat tellus id tristique vulputate. Nullam venenatis mi nec velit dignissim finibus. Ut efficitur aliquet ipsum, ac laoreet elit bibendum vitae. Nullam tincidunt magna ac ante iaculis iaculis. In cursus turpis sed risus rutrum, eget rutrum nulla dictum.",
 ];
 
@@ -23,16 +24,19 @@ generate.addEventListener("click", (e) => {
   allP.textContent = "";
   textCopy.innerHTML = "Copy";
   for (let i = 0; i < range.value; i++) {
-    const p = document.createElement("p");
-    let par = paragraphs[i];
-    const newContent = document.createTextNode(par);
-    p.appendChild(newContent);
-    p.style.paddingTop = "2%";
-    p.classList.remove("hide");
-    allP.appendChild(p);
-    allP.style.height = "15%";
-    allP.style.overflowY = "scroll";
-    allP.style.width = "100%";
+    if (range.value > 10) {
+      allP.innerHTML = "Please, insert a number between 1-10";
+    } else {
+      const p = document.createElement("p");
+      let par = paragraphs[i];
+      const newContent = document.createTextNode(par);
+      p.appendChild(newContent);
+      p.style.paddingTop = "2%";
+      p.classList.remove("hide");
+      allP.appendChild(p);
+      allP.style.height = "15%";
+      allP.style.width = "100%";
+    }
   }
 });
 
@@ -40,7 +44,7 @@ function toCopy() {
   let toCopy1 = allP.innerText;
   navigator.clipboard.writeText(toCopy1);
 }
- textCopy.innerHTML = "Copy";
+textCopy.innerHTML = "Copy";
 copy.addEventListener("click", function () {
   textCopy.innerHTML = "Copied!";
   toCopy();
