@@ -31,10 +31,10 @@ generate.addEventListener("click", (e) => {
       let par = paragraphs[i];
       const newContent = document.createTextNode(par);
       p.appendChild(newContent);
-      p.style.paddingTop = "2%";
+      p.style.paddingTop = "6%";
       p.classList.remove("hide");
       allP.appendChild(p);
-      allP.style.height = "15%";
+      allP.style.marginTop = "2%";
       allP.style.width = "100%";
     }
   }
