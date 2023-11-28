@@ -533,3 +533,15 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #9ca3af;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+}
